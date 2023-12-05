@@ -132,12 +132,18 @@ img {
     margin: 0 auto;
     width: 80%;
     text-align: center;
-    margin-top: 5rem;
 }
 
-.home-search label {
+.home-section {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.home-section h2 {
     font-size: 1.5rem;
     font-weight: 600;
+    width: fit-content;
     margin-right: 1rem;
     display: block;
     text-align: left;
@@ -152,6 +158,10 @@ img {
     outline: none;
     transition: all .3s ease-in-out;
 
+}
+
+.home-search {
+    margin: 0;
 }
 
 .home-search input {
@@ -169,19 +179,6 @@ img {
 .home-search input::placeholder {
     font-size: 1.5rem;
     color: rgb(184, 184, 184);
-}
-
-.searchbar button {
-    font-size: 2rem;
-    color: var(--main-text);
-    background: none;
-    border: none;
-}
-.home-search button {
-    position: absolute;
-    right: 1rem;
-    height: 100%;
-    cursor: pointer;
 }
 
 .search-container {
@@ -214,21 +211,8 @@ img {
     border-bottom: 3px solid #FFF;
 }
 
-.result-title {
-    font-size: 2rem;
-    font-weight: 600;
-    text-align: center;
-    margin-bottom: 2rem;
-    margin-top: 2rem;
-}
-
-.result-title span {
-    color: var(--highlight);
-}
-
-
 .results {
-    margin: 0 auto;
+    margin: 2rem auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
