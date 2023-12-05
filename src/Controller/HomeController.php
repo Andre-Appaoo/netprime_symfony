@@ -10,24 +10,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
-    private MovieRepository $movieRepository;
-    private PeopleRepository $peopleRepository;
-
-    public function __construct(MovieRepository $movieRepository, PeopleRepository $peopleRepository)
-    {
-        $this->movieRepository = $movieRepository;
-        $this->peopleRepository = $peopleRepository;
-    }
-
     #[Route('/', name: 'app_home')]
     public function index(): Response
     {
-        $allMovies = $this->movieRepository->findAll();
-        $allPeople = $this->peopleRepository->findAll();
-
-        return $this->render('pages/home/index.html.twig', [
-            'allMovies' => $allMovies,
-            'allPeople' => $allPeople,
-        ]);
+        return $this->render('pages/home/index.html.twig');
     }
 }

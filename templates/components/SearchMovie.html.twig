@@ -1,0 +1,24 @@
+<div{{ attributes }} class="home-search searchbar">
+    <h2>Rechercher un film</h2>
+    <input
+            type="search"
+            data-model="query"
+            placeholder="Exemple : Le voyage de Chihiro"
+            class="form-control"
+    >
+
+    {% if computed.movies|length > 0 %}
+        <div data-loading="addClass(opacity-50)" class="mt-3 row">
+            {% for movie in computed.movies %}
+                <a href="" class="movie-result">
+                    <img src="https://image.tmdb.org/t/p/original{{ movie.posterUrl }}" alt="{{ movie.title }}">
+                    <h3>
+                        {{ movie.title }}
+                    </h3>
+                </a>
+            {% endfor %}
+        </div>
+    {% elseif query is not null %}
+        <div class="">Ah! No movies found matching "{{ query }}"</div>
+    {% endif %}
+</div>

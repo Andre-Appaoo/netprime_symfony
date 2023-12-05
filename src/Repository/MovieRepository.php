@@ -21,6 +21,23 @@ class MovieRepository extends ServiceEntityRepository
         parent::__construct($registry, Movie::class);
     }
 
+    /**
+     * @return Movie[] Returns an array of Movie objects
+     */
+    public function findByTitle(string|null $title): array
+    {
+        if ($title !== null) {
+            return $this->createQueryBuilder('m')
+                ->where('m.title LIKE :title')
+                ->setParameter('title', '%'.$title.'%')
+                ->getQuery()
+                ->getResult()
+            ;
+        }
+
+        return [];
+    }
+
 //    /**
 //     * @return Movie[] Returns an array of Movie objects
 //     */
